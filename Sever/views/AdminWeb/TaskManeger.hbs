@@ -3,13 +3,11 @@
         <header>
             <div class="logo">
                 <i class="fas fa-gamepad"></i>
-                <p>The Game Zone</p>
+                <p>Knight's adventures</p>
             </div>
             <ul class="navbar">
-                <li><a href="/" class="active">HOME</a></li>
-                <li><a href="video.html">PREAMBLE</a></li>
-                <li><a href="#">SUPPORT</a></li>
-                <li><a href="/rank">RANK</a></li>
+                <li><a href="/webAdmin" class="active">HOME</a></li>
+                <li><a href="/new">ADD</a></li>
                 <li><a href="/login">LOGIN</a>/<a href="/register">REGISTER</a></li>
             </ul>
         </header>
@@ -21,10 +19,8 @@
                         <tr>
                             <th>ID_User</th>
                             <th>Tên</th>
-                            <th>Màn</th>
                             <th>Điểm</th>
                             <th>Coin</th>
-                            <th>Trạng Thái</th>
                             <th>Tools</th>
                         </tr>
                     </thead>
@@ -33,16 +29,10 @@
                         <tr>
                             <td>{{this._id}}</td>
                             <td>{{this.name}}</td>
-                            <td>{{this.man}}</td>
+                           
                             <td>{{this.diem}}</td>
                             <td>{{this.coin}}</td>
-                            <td>
-                                <select>
-                                    <option >Không ban</option>
-                                    <option >Đã ban</option>
-                                </select>
-                            </td>
-                            <td><button>Xóa</button>|<button>Sữa</button></td>
+                            <td><a onclick="confirmDelete('{{this._id}}')">Xóa</a></td>
                         </tr>
                         {{/each}}
                     </tbody>
@@ -53,7 +43,7 @@
 
     <div class="logo-section">
         <i class="fas fa-gamepad"></i>
-        <h1> The Game zone</h1>
+        <h1>Knight's adventures</h1>
     </div>
     <!-- lo go section ends here-->
 
@@ -86,4 +76,57 @@
                 <li><a href="#">Arcade</a></li>
             </ul>
         </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+
+
+            const fetchAPI = async (url, Option) => {
+                const res = await fetch(url, Option);
+                return res.json();
+            }
+
+            const deleteUser = async (id) => {
+                const url = `/${id}/delete`;
+                const Option = {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+
+                try {
+                    const res = await fetchAPI(url, Option);
+                    if (res.result) {
+                        swal.fire("Thành công!", "xóa người chơi thành công:", "xóa");
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
+                    } else {
+                        swal.fire("Thất bại!", "xóa người chơi thất bại:", "error");
+                    }
+                } catch (err) {
+                    console.log(err);
+                    swal.fire("Thất bại!", "xóa người chơi thất bại:", "error");
+                }
+            }
+
+            const confirmDelete = (id) => {
+                swal.fire({
+                    title: "Xác nhận?",
+                    text: "Bạn có chắc chắn muốn xóa Người chơi này không?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        deleteUser(id);
+                    }
+                    // Ngược lại, không làm gì cả nếu người dùng không xác nhận xóa.
+                });
+            }
+
+        </script>
 </body>

@@ -116,7 +116,7 @@ ul.navbar li a:hover:not(.active){
 }
 .rakuto::after{
     content: '';
-    width: 400px;
+    width: 600px;
     height: 400px;
     background: url(../images/characters.png);
     background-size: cover;
@@ -173,29 +173,33 @@ section-1 h1{
 .section-1-img .img{
     width: 100px;
     height: 130px;
-    background: url(../images/b3.jpg);
     background-size: cover;
     background-position: center;
     margin-right: 10px;
     border-radius: 10px;
 }
+.section-1-img .img-2{
+    background: url(../images/Player5.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
 .section-1-img .img-3{
-    background: url(../images/b3.jpg);
+    background: url(../images/Player2.jpg);
     background-size: cover;
     background-position: center;
 }
 .section-1-img .img-4{
-    background: url(../images/b3.jpg);
+    background: url(../images/Player3.jpg);
     background-size: cover;
     background-position: center;
 }
 .section-1-img .img-5{
-    background: url(../images/b3.jpg);
+    background: url(../images/Player4.jpg);
     background-size: cover;
     background-position: center;
-}
-.section-1-img .img-6{
-    background: url(../images/b3.jpg);
+}.section-1-img .img-1{
+    background: url(../images/Player1.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -240,50 +244,34 @@ section-1 h1{
 
 
 .gw-1{
-    background: url(../images/b2.jpg);
+    background: url(../images/qua.jpg);
     background-size: cover;
     background-position: center;
 }
 .gw-2{
-    background: url(../images/b2.jpg);
+    background: url(../images/chimung.jpg);
     background-size: cover;
     background-position: center;
 }
 .gw-3{
-    background: url(../images/b2.jpg);
+    background: url(../images/ma.jpg);
     background-size: cover;
     background-position: center;
 }
 .gw-4{
-    background: url(../images/b2.jpg);
+    background: url(../images/gioi.jpg);
     background-size: cover;
     background-position: center;
 }
+
+
 .gw-5{
-    background: url(../images/b2.jpg);
+    background: url(../images/qua.jpg);
     background-size: cover;
     background-position: center;
 }
-.gw-6{
-    background: url(../images/b2.jpg);
-    background-size: cover;
-    background-position: center;
-}
-.gw-7{
-    background: url(../images/b2.jpg);
-    background-size: cover;
-    background-position: center;
-}
-.gw-8{
-    background: url(../images/b2.jpg);
-    background-size: cover;
-    background-position: center;
-}
-.gw-9{
-    background: url(../images/b2.jpg);
-    background-size: cover;
-    background-position: center;
-}
+
+
 
 /*  section 1.1 end here*/
 .section-2{
@@ -342,25 +330,21 @@ section-1 h1{
 }
 
 .p-image-1{
-    background: url(../images/nhat.jpg);
+    background: url(../images/khoi.jpg);
     background-size: cover;
     background-position: center;
 }
 .p-image-3{
-    background: url(../images/nhat.jpg);
+    background: url(../images/anhdev.jpg);
     background-size: cover;
     background-position: center;
 }
 .p-image-4{
-    background: url(../images/nhat.jpg);
+    background: url(../images/anhdev1.jpg);
     background-size: cover;
     background-position: center;
 }
-.p-image-5{
-    background: url(../images/nhat.jpg);
-    background-size: cover;
-    background-position: center;
-}
+
 
 /* section 3 start herej */
 .section-3{
@@ -446,4 +430,8 @@ ul li a:hover{
 }
 .footer-logo h1{
     margin-top:  25px
+}
+
+.button-key{
+    width: 200px;
 }

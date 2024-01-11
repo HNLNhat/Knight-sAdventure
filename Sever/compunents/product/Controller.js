@@ -1,6 +1,6 @@
 const productService = require('./Service');
 
-const getAllRank = async() =>{
+const getAllRank = async () => {
     try {
         return await productService.getAllRank();
     } catch (error) {
@@ -8,7 +8,18 @@ const getAllRank = async() =>{
     }
 }
 
-const deleteProductByID = async(id)=>{
+const getAllUser = async () => {
+    try {
+        return await productService.getAllUsers();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
+
+const deleteProductByID = async (id) => {
     try {
         return await productService.deleteProductByID(id);
     } catch (error) {
@@ -17,23 +28,73 @@ const deleteProductByID = async(id)=>{
 }
 
 
-const addProduct = async (id_user,man,diem,coin)=>{
+const addProduct = async (id, name, man, diem, coin, roll) => {
     try {
-        return await productService.addProduct(id_user,man,diem,coin);
+        return await productService.addProduct(id, name, man, diem, coin, roll);
     } catch (error) {
         console.log(error);
     }
 }
 
-const getProductById = async (id) =>{
-    try{
-        return await productService.getProductById(id);
-    }catch(error){
+const Changname = async (id, name) => {
+    try {
+        return await productService.addProduct(id, name);
+    } catch (error) {
         console.log(error);
     }
 }
 
-const updateProductById = async (id,name,man, diem, coin) =>{
+const newProduct = async (email, password, name, man, diem, coin, roll) => {
+    try {
+        return await productService.addnewProduct(email, password, name, man, diem, coin, roll);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+const addnewProduct = async (name, man, diem, coin, roll) => {
+    try {
+        return await productService.addnewProduct(name, man, diem, coin, roll);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+const Savepoint = async (name, diem, coin, x, y, z) => {
+    try {
+        return await productService.Savepoint(name, diem, coin, x, y, z);
+    } catch (error) {
+        console.log(error);
+    }
+}
+const updateCoin = async (name, coin) => {
+    try {
+        return await productService.updateCoinByNameUser(name, coin);
+    } catch (error) {
+        console.log(error);
+    }
 
 }
-module.exports = {getAllRank,updateProductById,deleteProductByID,addProduct,getProductById};
+const getCoin = async (name) => {
+    try {
+        return await productService.getCoinByUser(name);
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+const getProductById = async (id) => {
+    try {
+        return await productService.getProductById(id);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const updateProductById = async (id, name, man, diem, coin) => {
+
+}
+module.exports = { newProduct, getAllRank, updateProductById, getCoin, deleteProductByID, addProduct, getProductById, Savepoint, getAllUser, addnewProduct, Changname, updateCoin };

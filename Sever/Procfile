@@ -1,1 +1,2 @@
-wed: nodemon ./bin/www
+
+web: node app.js
