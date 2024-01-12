@@ -1,0 +1,132 @@
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <p>Knight's adventures</p>
+            </div>
+            <ul class="navbar">
+                <li><a href="/webAdmin" class="active">HOME</a></li>
+                <li><a href="/new">ADD</a></li>
+                <li><a href="/login">LOGIN</a>/<a href="/register">REGISTER</a></li>
+            </ul>
+        </header>
+
+        <div class="tableRank">
+            <div class="tableWrapper">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>ID_User</th>
+                            <th>Tên</th>
+                            <th>Điểm</th>
+                            <th>Coin</th>
+                            <th>Tools</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each AllUser}}
+                        <tr>
+                            <td>{{this._id}}</td>
+                            <td>{{this.name}}</td>
+                           
+                            <td>{{this.diem}}</td>
+                            <td>{{this.coin}}</td>
+                            <td><a onclick="confirmDelete('{{this._id}}')">Xóa</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-section">
+        <i class="fas fa-gamepad"></i>
+        <h1>Knight's adventures</h1>
+    </div>
+    <!-- lo go section ends here-->
+
+    <footer>
+        <div class="footer-body">
+            <div class="logo footer-logo">
+                <i class="fas fa-gamepad"></i>
+                <h1>TheGameZone</h1>
+            </div>
+            <ul>
+                <h3>Short Links</h3>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+            </ul>
+            <ul>
+                <h3>ACTION GAME</h3>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+            </ul>
+
+            <ul>
+                <h3>GET IN TOUCH</h3>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+                <li><a href="#">Arcade</a></li>
+            </ul>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+
+
+            const fetchAPI = async (url, Option) => {
+                const res = await fetch(url, Option);
+                return res.json();
+            }
+
+            const deleteUser = async (id) => {
+                const url = `/${id}/delete`;
+                const Option = {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+
+                try {
+                    const res = await fetchAPI(url, Option);
+                    if (res.result) {
+                        swal.fire("Thành công!", "xóa người chơi thành công:", "xóa");
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
+                    } else {
+                        swal.fire("Thất bại!", "xóa người chơi thất bại:", "error");
+                    }
+                } catch (err) {
+                    console.log(err);
+                    swal.fire("Thất bại!", "xóa người chơi thất bại:", "error");
+                }
+            }
+
+            const confirmDelete = (id) => {
+                swal.fire({
+                    title: "Xác nhận?",
+                    text: "Bạn có chắc chắn muốn xóa Người chơi này không?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        deleteUser(id);
+                    }
+                    // Ngược lại, không làm gì cả nếu người dùng không xác nhận xóa.
+                });
+            }
+
+        </script>
+</body>

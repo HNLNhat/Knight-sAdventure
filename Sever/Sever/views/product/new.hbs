@@ -1,0 +1,110 @@
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <p>Knight's adventures</p>
+            </div>
+            <ul class="navbar">
+                <li><a href="/webAdmin" class="active">Home</a></li>
+                <li><a href="/new">Add</a></li>
+                <li><a href="/login">Login</a>/<a href="/register">Register</a></li>
+            </ul>
+        </header>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="containerr">
+            <div class="top-header">
+                <h2>ADD NEW </h2>
+            </div>
+            <form class="user" method="post" action="/addnewUser">
+                <div class="input-field">
+                    <input type="email" class="input" placeholder="Email" name="email" required>
+                    <i class="bx bx-user"></i>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" class="input" placeholder="Password" name="password" required>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="input-field">
+                    <input type="text" class="input" placeholder="Name" name="name" required>
+                    <i class="bx bx-user"></i>
+                </div>
+
+                <div class="input-field">
+                    <input type="Number" class="input" placeholder="Diem" name="diem" required>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+
+                <div class="input-field">
+                    <input type="Number" class="input" placeholder="Coin" name="coin" required>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+
+                <div class="input-field">
+                    <input type="Number" class="input" placeholder="Roll" name="roll" required>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <br>
+                <div>
+                    <!-- Hiển thị thông báo lỗi nếu có -->
+                    {{#if errorMessage}}
+                    <p>{{errorMessage}}</p>
+                    {{/if}}
+
+                    <!-- Hiển thị thông báo thành công nếu có -->
+                    {{#if successMessage}}
+                    <p>{{successMessage}}</p>
+                    {{/if}}
+                </div>
+
+                <button type="submit">
+                    Thêm mới
+                </button>
+            </form>
+
+
+
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- lo go section ends here-->
+
+        <footer>
+        <div class="footer-body">
+            <div class="logo footer-logo">
+                <i class="fas fa-gamepad"></i>
+                <h1>Knight's adventures</h1>
+            </div>
+            <ul>
+                <h3>Short Links</h3>
+                <li><a href="https://github.com/lechinhbao/apigame.git">Github</a></li>
+                <li><a href="/">HomeGame</a></li>
+                <li><a href="mailto:baolcps21320@fpt.edu.vn">Liên Hệ và Hổ Trợ</a></li>
+            </ul>
+            <ul>
+                <h3>Link FaceDEV</h3>
+                <li><a href="https://www.facebook.com/profile.php?id=100011394196700https://www.facebook.com/profile.php?id=100011394196700">Bảo</a></li>
+                <li><a href="https://www.facebook.com/NguyenThanhKhoii">Khôi</a></li>
+                <li><a href="https://www.facebook.com/camvien2406">Viên</a></li>
+                <li><a href="https://www.facebook.com/nhatnamnopro2003">Nhật</a></li>
+            </ul>
+
+            <ul>
+                <h3>Link Github</h3>
+                <li><a href="/"></i>Github: Bảo</a></li>
+                <li><a href="#"></i>Github: Khôi</a></li>
+                <li><a href="#"></i>Github: Viên</a></li>
+                <li><a href="#"></i>Github: Nhật</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
